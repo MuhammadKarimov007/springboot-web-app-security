@@ -14,9 +14,13 @@
   <p>
     Welcome to the Luv2Code Company home page!
   </p>
+    <div sec:authorize="hasRole('MANAGER')">
+        <a th:href="@{/leaders}">Leadership Meeting</a> <br>
+    </div>
 
-  <a th:href="@{/leaders}">Leadership Meeting</a> <br>
-  <a th:href="@{/systems}">Admins Meeting</a> <br>
+  <div sec:authorize="hasRole('ADMIN')">
+    <a th:href="@{/systems}">Admins Meeting</a> <br>
+  </div>
 
     <form action="#" th:action="@{/logout}" method="post">
         <input type="submit" value="Logout">
